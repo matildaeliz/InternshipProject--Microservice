@@ -1,0 +1,46 @@
+
+body{
+    background:url("https://s1.1zoom.me/b5050/475/Passenger_Airplanes_501163_1920x1080.jpg");
+
+}
+
+.outer-login {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+
+}
+
+.loginfoto{
+    height: 5cm;
+    position: absolute;
+    top: -55mm;
+    right:11.7mm;
+}
+.login{
+    border: 3px solid red;
+    border-radius: 4mm;
+    padding: 12px;
+    backdrop-filter: blur(20px);
+
+}
+#username, #password {
+    border-radius: 1cm;
+    padding-left: 2mm;
+}
+#loginbtn,#signupbtn{
+    margin: 5mm;
+    margin-left: 7mm;
+    border-radius: 10mm;
+    box-shadow: black;
+    font-style: oblique;
+    font-weight: 600;
+
+}
+
+h1 {
+    font-family: "Arial Rounded MT Bold";
+    font-size: 30px;
+}

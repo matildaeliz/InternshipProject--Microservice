@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="signup.css" />
+
+</head>
+<body>
+
+
+
+
+<div class = outer-signup>
+  <img class = singupfoto src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/035d156c-ee7e-40ca-8242-13e29dff19db/d6qr4v9-87884c58-fcb2-43c2-a9dd-07af1e35886f.png/v1/fit/w_547,h_473/kerbal_space_program_agency_logo_by_jeffmcdowalldesign_d6qr4v9-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDczIiwicGF0aCI6IlwvZlwvMDM1ZDE1NmMtZWU3ZS00MGNhLTgyNDItMTNlMjlkZmYxOWRiXC9kNnFyNHY5LTg3ODg0YzU4LWZjYjItNDNjMi1hOWRkLTA3YWYxZTM1ODg2Zi5wbmciLCJ3aWR0aCI6Ijw9NTQ3In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3EVKnvfc1iLkCledi8p1fCpmJm7EFzXuO-6_1DYitgs
+" alt="resme alternatif yazı">
+  <div class="signup">
+    <br> <h1>Sign Up</h1> </br>
+    <br>   <label> Username </label></br>
+    <input  id="username" >
+    <br> <label> Password</label></br>
+    <input type="password" id="password">
+    <br> <label> Password (Again)</label></br>
+    <input type="password" id="passwordagain">
+
+  </div>
+  <button id="signupbtn"> Signup</button>
+  <button id="backbtn"> Back</button>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+
+</script>
+<script>
+
+        document.getElementById("backbtn").addEventListener("click", function() {
+
+            window.location.href = "index.html";
+        });
+    </script>
+
+<script>
+  document.getElementById("signupbtn").addEventListener("click",function(){
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST","http://localhost:9000/user/register?username="+username+"&password="+password);
+    xhr.send();
+  })
+
+</script>
+</body>
+</html>

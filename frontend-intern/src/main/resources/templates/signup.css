@@ -1,0 +1,38 @@
+body{
+    background-image: url("https://images4.alphacoders.com/678/678960.jpg");
+}
+
+.outer-signup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signup{
+    border: 3px solid red;
+    border-radius: 4mm;
+    padding: 12px;
+    backdrop-filter: blur(20px);
+
+}
+
+#backbtn,#signupbtn{
+    margin: 5mm;
+    margin-left: 7mm;
+    border-radius: 10mm;
+    box-shadow: black;
+    font-style: oblique;
+    font-weight: 600;
+
+}
+.singupfoto{
+    height: 5cm;
+    position: absolute;
+    top: -55mm;
+left: 1mm;
+}
+#username, #password,#passwordagain {
+    border-radius: 1cm;
+    padding-left: 2mm;
+}
