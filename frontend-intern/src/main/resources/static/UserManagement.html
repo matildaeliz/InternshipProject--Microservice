@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <link rel="stylesheet" type="text/css" href="navigationcss.css" />
+    <link rel="stylesheet" type="text/css" href="usermanagement.css" />
+
+</head>
+<body>
+<div class="navigationbar">
+    <ul id =fullnavigation  >
+        <li class="navigationlist"><a href="reservation.html">Reservation</a></li>
+        <li class="navigationlist"><a href="PNRSearch.html">PNR Search</a></li>
+        <li class="navigationlist"><a href="UserManagement.html">User Management</a></li>
+    </ul>
+</div>
+<div id="usermanagementbox">
+
+    <div id ="innerdiv">
+        <br>   <label> Username </label></br>
+        <input  id="username2" >
+        <br> <label> Password</label></br>
+        <input type="password2" id="password2">
+        <br> <label> Password (Again)</label></br>
+        <input type="password2" id="passwordagain2">
+
+    </div>
+
+    <button id="changepasswordbutton"> Change Password </button>
+   <div id="outerdiv">
+
+       <br>   <label> Delete User </label></br>
+       <input  id="username3" >
+
+   </div>
+    <button id="deleteuserbutton"> Delete User </button>
+
+</div>
+</body>
+
+
+<script>
+    document.getElementById("changepasswordbutton").addEventListener("click",function (){
+        var username = document.getElementById("username2").value;
+        var password= document.getElementById("password2").value;
+        var passwordagain=document.getElementById("passwordagain2").value;
+        if (password !== passwordagain) {
+            alert("Passwords are different");
+        }else{
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:9000/usermanagement/changepassword?username=" + username+"&password="+password);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var responseText = xhr.responseText;
+                        console.log("Yanıt Metni:", responseText);
+                        alert("Password Changed");
+                    } else {
+                        alert("There is no such User");
+                    }
+                }
+            };
+            xhr.send();
+        }
+    })
+</script>
+
+<script>
+    document.getElementById("deleteuserbutton").addEventListener("click",function (){
+        var username2 = document.getElementById("username3").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:9000/usermanagement/deleteaccount?username=" + username2);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var responseText = xhr.responseText;
+                    console.log("Yanıt Metni:", responseText);
+                    alert("User Deleted");
+                } else {
+                    alert("There is no such User");
+                }
+            }
+        };
+        xhr.send();
+
+    })
+</script>
+</html>

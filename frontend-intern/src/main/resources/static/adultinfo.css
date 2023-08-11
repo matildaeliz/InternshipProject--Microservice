@@ -1,0 +1,27 @@
+#reservationbox{
+    height: 10cm;
+    width: 15cm;
+    border: 3px solid black;
+    left: 35%;
+    top:-15cm;
+    background-color: #f38cad;border-color: rgb(98, 10, 45);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+#innerdiv{
+    position: relative;
+    left: 5cm;
+    top: 2cm;
+}
+label{
+    font-size: 25px;
+}
+
+#nextadultbutton{
+    position: relative;
+    left: 12cm;
+    bottom: -3cm;
+    border-radius: 2cm;
+}

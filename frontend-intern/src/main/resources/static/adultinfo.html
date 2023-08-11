@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AdultInfo</title>
+    <link rel="stylesheet" type="text/css" href="navigationcss.css" />
+    <link rel="stylesheet" type="text/css" href="adultinfo.css" />
+</head>
+<body>
+<div class="navigationbar">
+    <ul id =fullnavigation  >
+        <li class="navigationlist"><a href="reservation.html">Reservation</a></li>
+        <li class="navigationlist"><a href="PNRSearch.html">PNR Search</a></li>
+        <li class="navigationlist"><a href="UserManagement.html">User Management</a></li>
+    </ul>
+</div>
+
+<div id="reservationbox">
+
+    <div id ="innerdiv">
+        <br>   <label> Name </label></br>
+        <input  id="name" >
+        <br>   <label> Surname </label></br>
+        <input  id="surname" >
+        <br>   <label> Telephone </label></br>
+        <input  id="telephone" >
+        <br>   <label> Mail </label></br>
+        <input  id="mail" >
+    </div>
+
+    <button id="nextadultbutton">  Next </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>
+
+<script>
+    document.getElementById("nextadultbutton").addEventListener("click", function () {
+        var name = document.getElementById("name").value
+        var surname = document.getElementById("surname").value;
+        var telephone = document.getElementById("telephone").value;
+        var email = document.getElementById("mail").value;
+
+if(!name || !surname|| !telephone|| !email){
+    alert("Fill all fields")
+}else{
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:9000/reservation/adultinfo?name=" + name + "&surname=" + surname+"&telephone="+telephone+"&mail="+email);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                var responseText = xhr.responseText;
+                console.log("Yanıt Metni:", responseText);
+                window.location.href="availableflight.html"
+            } else {
+
+            }
+        }
+    };
+    xhr.send();
+}
+    });
+</script>

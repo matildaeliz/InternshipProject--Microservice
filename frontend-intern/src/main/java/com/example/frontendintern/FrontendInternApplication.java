@@ -10,6 +10,7 @@ public class FrontendInternApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FrontendInternApplication.class, args);
+
 	}
 
 }

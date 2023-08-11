@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+    <link rel="stylesheet" type="text/css" href="navigationcss.css" />
+    <link rel="stylesheet" type="text/css" href="reservation.css" />
+</head>
+<body>
+<div class="navigationbar">
+    <ul id =fullnavigation  >
+        <li class="navigationlist"><a href="reservation.html">Reservation</a></li>
+        <li class="navigationlist"><a href="PNRSearch.html">PNR Search</a></li>
+        <li class="navigationlist"><a href="UserManagement.html">User Management</a></li>
+    </ul>
+</div>
+
+<div id="reservationbox">
+    <div id="reservationradiobox">
+        <div class="label" id="TripType">Trip Type:</div>
+        <label  class= "radio" for="oneway">One Way</label>
+        <label class="radio" for="roundtrip">Round Trip</label>
+        <br> </br>
+        <input type="radio" class = "radio" id="oneway" name="seçenek" value="OneWay"/>
+        <input type="radio"  class= radio id="roundtrip" name="seçenek" value="RoundTrip" />
+    </div>
+        <div class="departure">Departure Port: </div>
+        <div class="arrival">Arrival Port:</div>
+        <div class="dropdown">
+            <select id="departure">
+                <option value="IST">IST</option>
+            </select>
+        </div>
+
+        <div class="dropdown2">
+            <select id ="arrival">
+                <option value="ROM">ROM</option>
+                <option value="BAK">BAK</option>
+                <option value="DHM">DHM</option>
+                <option value="ESS">ESS</option>
+                <option value="PAR">PAR</option>
+            </select>
+        </div>
+    <label for="datePicker" id="datelabel">Select a date:</label>
+    <input type="date" id="datePicker" name="datePicker">
+            <div class="adult">Adult Count: </div>
+    <div class="infant">Infant Count:</div>
+    <div class="child">Child Count:</div>
+    <div class="adultbox">
+        <select id="adultbox">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+        <div class="childbox">
+            <select id="childbox">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="infantbox">
+            <select id="infantbox">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+
+</div>
+
+<button id="nextbutton">Next</button>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("nextbutton").addEventListener("click", function () {
+        var triptypeElement = document.querySelector('input[name="seçenek"]:checked');
+        var triptype = triptypeElement.value;
+        var departure = document.getElementById("departure").value;
+        var arrival = document.getElementById("arrival").value;
+        var adult = document.getElementById("adultbox").value
+        var child = document.getElementById("childbox").value;
+        var infant = document.getElementById("infantbox").value;
+        var date = document.getElementById("datePicker").value;
+
+        if(!triptype || !departure || !arrival || !adult || !child || !infant|| !date){
+            alert("All field must be filled")
+            console.log(triptype,departure,arrival,adult,child,infant,date);
+        }else {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:9000/reservation/reservation?triptype=" + triptype + "&departure=" + departure+"&arrival="+arrival+"&adultcount="+adult+"&childcount="+child+"&infantcount="+infant+"&date="+date);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var responseText = xhr.responseText;
+                        console.log("Yanıt Metni:", responseText);
+                        window.location.href="adultinfo.html"
+                    } else {
+
+                    }
+                }
+            };
+            xhr.send();
+        }
+    })
+</script>

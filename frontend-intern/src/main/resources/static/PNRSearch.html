@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PNR Search</title>
+    <link rel="stylesheet" type="text/css" href="navigationcss.css" />
+    <link rel="stylesheet" type="text/css" href="pnrsearch.css" />
+</head>
+<body>
+<div class="navigationbar">
+    <ul id =fullnavigation  >
+        <li class="navigationlist"><a href="reservation.html">Reservation</a></li>
+        <li class="navigationlist"><a href="PNRSearch.html">PNR Search</a></li>
+        <li class="navigationlist"><a href="UserManagement.html">User Management</a></li>
+    </ul>
+</div>
+
+
+<div id="pnrsearchdiv">
+    <br><label id="pnrsearchlabel"> PNR SEARCH</label></br>
+    <input id="pnrsearch">
+
+
+</div>
+<button id="pnrsearchbutton"> Search </button>
+</body>
+
+<script>
+    document.getElementById("pnrsearchbutton").addEventListener("click",function () {
+        var pnr = document.getElementById("pnrsearch").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:9000/search/checkrezervationinfo?pnr=" +pnr)
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var responseText = xhr.responseText;
+                    console.log("Yanıt Metni:", responseText);
+                    window.location.href = "rezervationinfo.html"
+                }else if(xhr.status === 500 || xhr.status === 503 ){
+                    alert("Under Maintanance")
+                }
+                else{
+                    alert("There is no such a Reservation")
+                }
+
+            }
+        }
+        xhr.send()
+    })
+</script>
+</html>

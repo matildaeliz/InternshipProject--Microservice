@@ -1,0 +1,16 @@
+#pnrsearchdiv{
+    position: absolute;
+    left: 20cm;
+    top:8cm;
+    background-color: #f38cad;
+    border: 2px solid black;
+    border-radius: 3mm;
+}
+#pnrsearch{
+    border-radius: 3mm;
+}
+#pnrsearchbutton{
+    position: absolute;
+    left: 21.4cm;
+    bottom: 85mm;
+}

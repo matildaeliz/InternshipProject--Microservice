@@ -1,0 +1,68 @@
+#reservationbox{
+    height: 10cm;
+    width: 15cm;
+    border: 3px solid black;
+    left: 35%;
+    top:-15cm;
+    background-color: #f38cad;border-color: rgb(98, 10, 45);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+#businessbox{
+    height: 30mm;
+    width: 150mm;
+    background-color: #3be86e;
+    border: 3px solid black;
+    position: relative;
+    top:-130mm;
+    left: 180mm;
+}
+#business,#economy{
+    font-weight: bold;
+    font-size: 10mm;
+    position: relative;
+    top: 8mm;
+}
+#economybox{
+    height: 30mm;
+    width: 150mm;
+    background-color: cornsilk;
+    border: 3px solid black;
+    position: relative;
+    top:-130mm;
+    left: 180mm;
+}
+
+#economyprice {
+    font-weight: bold;
+    position: relative;
+    top: 30px;
+    left: 85mm;
+}
+#businnesprice{
+    font-weight: bold;
+    position: relative;
+    top: 30px;
+    left: 89mm;
+}
+
+#economypr{
+    font-weight: bold;
+    position: relative;
+    left: 84mm;
+    top :8mm;
+}
+#businesspr{
+    font-weight: bold;
+    position: relative;
+    left: 87mm;
+    top :8mm;
+}
+
+#selectbutton{
+    position: relative;
+    top:-123mm;
+    left:310mm;
+}

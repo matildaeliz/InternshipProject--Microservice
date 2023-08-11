@@ -1,0 +1,22 @@
+#usermanagementbox{
+    position: absolute;
+    left:190mm;
+    top:5cm;
+
+}
+#innerdiv{
+    background-color: #f38cad;
+    border:2px solid brown;
+    border-radius: 2mm;
+
+}
+
+#outerdiv{
+    background-color: #f38cad;
+    border:2px solid brown;
+    border-radius: 2mm;
+
+}
+#passwordagain2,#username3{
+    border-radius: 4px;
+}

@@ -1,0 +1,96 @@
+#infobox{
+position: relative;
+font-weight: bold;
+    width: 500px;
+    height: 300px;
+    border: 2px solid black;
+    background-color: blanchedalmond;
+    left: 600px;
+    bottom: 500px;
+}
+#paybutton{
+    position: relative;
+    left: -9.15cm;
+    top: 7.75cm;
+    width: 30mm;
+    height: 10mm;
+    background-color: green;
+    border-radius: 0 12rem 12rem 12rem;
+}
+#line{
+    position: relative;
+    border: 4px solid black;
+    width: auto;
+    top: 25mm;
+}
+#flightinfo{
+    position: relative;
+    text-decoration: underline;
+    top:-0.8mm;
+    left: 54mm;
+}
+
+#passengerInfo{
+    position: relative;
+    top: 30mm;
+    right: -30mm;
+    text-decoration: underline;
+}
+#flightinformation{
+    position: relative;
+    top:-19.8cm;
+    left:200mm;
+    font-weight: bold;
+}
+
+#passengerinformation{
+    position: absolute;
+    top:11cm;
+    left:195mm;
+    font-weight: bold;
+
+}
+#aircraft,#destination,#date{
+    position:absolute;
+    top:9mm;
+    left:12cm;
+    text-decoration: underline;
+}
+
+#name,#telephone,#mail{
+    position: relative;
+    text-decoration: underline;
+    bottom: -4.4cm;
+    left: 10cm;
+}
+#name {
+    left: -14mm;
+}
+
+#telephone{
+    left: -8mm;
+}
+#cancelbutton{
+    position: relative;
+    left: -0.4mm;
+    top: 7.23cm;
+    width: 30mm;
+    height: 10mm;
+    background-color: red;
+    border-radius: 0 12rem 12rem 12rem;
+}
+
+#aircraft{
+left:40mm;
+}
+
+#destination{
+    left:5.6cm;
+}
+
+#date{
+    left:8cm;
+}
+#mail{
+    left:-0cm;
+}

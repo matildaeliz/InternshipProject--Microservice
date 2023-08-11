@@ -1,5 +1,6 @@
 package com.example.UserService.Entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,17 +12,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     @Column
     private String username;
-
-
-
     @Column
     private String  password;
-
-
-
-
     public User(String username,String password){
         this.username = username;
         this.password = password;

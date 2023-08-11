@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Flight</title>
+
+    <link rel="stylesheet" type="text/css" href="navigationcss.css" />
+    <link rel="stylesheet" type="text/css" href="availableflight.css" />
+</head>
+<body>
+<div class="navigationbar">
+    <ul id =fullnavigation  >
+        <li class="navigationlist"><a href="reservation.html">Reservation</a></li>
+        <li class="navigationlist"><a href="PNRSearch.html">PNR Search</a></li>
+        <li class="navigationlist"><a href="UserManagement.html">User Management</a></li>
+    </ul>
+</div >
+
+<div id="businessbox">
+    <label id="business">Business</label>
+    <label id="businesspr">Business</label>
+    <input type="radio" class = "radio" id="businnesprice" name="seçenek2" value=""/>
+
+</div>
+
+<div id ="economybox">
+    <label id="economy">Economy</label>
+    <label id="economypr">Economy</label>
+
+    <input type="radio" class = "radio" id="economyprice" name="seçenek2" value=""/>
+
+</div>
+
+<button id="selectbutton"> Next</button>
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        var businessxhr = new XMLHttpRequest();
+        var economyxhr = new XMLHttpRequest();
+
+        businessxhr.open("GET", "http://localhost:9000/reservation/getbusinessprice")
+        economyxhr.open("GET", "http://localhost:9000/reservation/geteconomyprice")
+        businessxhr.onreadystatechange = function () {
+
+            if (businessxhr.status === 200) {
+                var responseText = businessxhr.responseText;
+                document.getElementById("businnesprice").value = responseText;
+                document.getElementById("businesspr").textContent = responseText+"₺";
+
+            }
+        };
+
+        economyxhr.onreadystatechange = function () {
+
+            if (economyxhr.status === 200) {
+                var response2Text = economyxhr.responseText;
+                document.getElementById("economyprice").value = response2Text;
+                document.getElementById("economypr").textContent = response2Text+"₺";
+
+            }
+        };
+
+        businessxhr.send();
+        economyxhr.send();
+
+    });
+
+    document.getElementById("selectbutton").addEventListener("click",function () {
+        var pricetypeElement = document.querySelector('input[name="seçenek2"]:checked');
+        var pricetype = pricetypeElement.value;
+        if(!pricetype){
+            alert("All field must be filled")
+        }else {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:9000/reservation/setprice?price=" + pricetype)
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var responseText = xhr.responseText;
+                        console.log("Yanıt Metni:", responseText);
+                        window.location.href="payment.html"
+                    } else {
+
+                    }
+                }
+            };
+            xhr.send();
+        }
+    })
+</script>
+
+
+
+</html>

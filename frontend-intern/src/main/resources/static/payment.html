@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+  <link rel="stylesheet" type="text/css" href="navigationcss.css" />
+    <link rel="stylesheet" type="text/css" href="payment.css" />
+</head>
+<body>
+<div class="navigationbar">
+  <ul id =fullnavigation  >
+    <li class="navigationlist"><a href="reservation.html">Reservation</a></li>
+    <li class="navigationlist"><a href="PNRSearch.html">PNR Search</a></li>
+    <li class="navigationlist"><a href="UserManagement.html">User Management</a></li>
+  </ul>
+</div>
+
+
+<div id="infobox">
+
+    <div id="line"></div>
+    <label id="flightinfo">Flight Info </label>
+    <label id ="aircraft">Aircraft</label>
+    <label id ="destination">Destination</label>
+    <label id="date"> Date</label>
+
+    <label id="passengerInfo">Passenger Info </label>
+    <label id ="name"> Name </label>
+    <label id="telephone"> Telephone</label>
+    <label id="mail"> Email</label>
+    <button id="paybutton">Pay</button>
+    <button id="cancelbutton">Cancel</button>
+</div>
+
+<label id ="flightinformation">Deneme</label>
+<label id ="passengerinformation">Deneme</label>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("cancelbutton").style.display="none"
+      var flightinfos = new XMLHttpRequest();
+        flightinfos.open("GET", "http://localhost:9000/reservation/getflightinfo")
+        flightinfos.onreadystatechange = function () {
+
+            if (flightinfos.status === 200) {
+                var responseText =  flightinfos.responseText;
+                document.getElementById("flightinformation").textContent = responseText;
+
+            }
+        };
+        var passengerinfos = new XMLHttpRequest();
+        passengerinfos.open("GET", "http://localhost:9000/reservation/getpassengerinfo")
+        passengerinfos.onreadystatechange = function () {
+
+            if (passengerinfos.status === 200) {
+                var responseText2 =  passengerinfos.responseText;
+                document.getElementById("passengerinformation").textContent = responseText2;
+
+            }
+        };
+        flightinfos.send()
+        passengerinfos.send()
+
+
+
+    });
+
+
+</script>
+
+
+<script>
+    document.getElementById("paybutton").addEventListener("click" , function (){
+        var button = new XMLHttpRequest()
+        button.open("GET","http://localhost:9000/reservation/setstatus")
+        button.onreadystatechange = function () {
+
+            if (button.status === 200) {
+
+                document.getElementById("paybutton").style.display= "none";
+                document.getElementById("cancelbutton").style.display= "block"
+            }
+        };
+        button.send()
+    })
+    document.getElementById("cancelbutton").addEventListener("click" , function (){
+        var cancel = new XMLHttpRequest()
+        cancel.open("GET","http://localhost:9000/reservation/deletereservation")
+        cancel.onreadystatechange = function () {
+
+            if (cancel.status === 200) {
+                alert("Succesfully deleted")
+            }
+        };
+        cancel.send()
+    })
+</script>
+</html>

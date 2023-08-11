@@ -1,0 +1,120 @@
+#reservationbox{
+    height: 10cm;
+    width: 15cm;
+    border: 3px solid black;
+    left: 35%;
+    top:-15cm;
+    background-color: #f38cad;border-color: rgb(98, 10, 45);
+    border-radius: 10px;
+
+position: relative;
+}
+
+#reservationradiobox{
+    position: relative;
+    top:1cm;
+    right: -5cm;
+}
+
+.radio{
+    margin-right: 30px;
+    font-size: 20px;
+}
+#oneway{
+
+    position: relative;
+    top:-10px;
+    left: 25px;
+}
+#roundtrip{
+    position: relative;
+    top:-10px;
+    right: -80px;
+}
+#TripType{
+    position: relative;
+    left:58px;
+}
+.label{
+    font-size: 20px;
+}
+.section2{
+    position: relative;
+    left: -10px;
+}
+.section{
+    position: relative;
+}
+
+.departure{
+    position: relative;
+    left : 4cm;
+    top: 2cm;
+    font-size: 20px;
+}
+.arrival{
+    position: relative;
+    top:1.4cm;
+    left :8cm;
+    font-size: 20px;
+}
+.dropdown{
+    position: relative;
+    left: 50mm;
+    top: 15.5mm;
+}
+.dropdown2 {
+
+    position: relative;
+    top: 10mm;
+    left: 85mm;
+}
+.adult{
+
+    position: relative;
+     left: 60px;
+    top:20mm;
+}
+
+.child{
+position: relative;
+    left: 64mm;
+    top:10mm;
+}
+
+.infant{
+    position: relative;
+    top: 15mm;
+    left : 110mm;
+}
+.infantbox{
+    position: relative;
+    left: 117mm;
+}
+.childbox{
+    position: relative;
+    top:5mm;
+    left:70mm;
+}
+.adultbox{
+    position: relative;
+    top:10.5mm;
+    left: 22mm;
+}
+#nextbutton{
+    position: relative;
+    top:-15.7cm;
+    left:27cm;
+    border-radius: 5px;
+}
+#datePicker{
+    position: relative;
+    left: 50mm;
+    top:-10mm;
+}
+#datelabel{
+    position: relative;
+    left: 45mm;
+    top:-10mm;
+    font-size: 20px;
+}

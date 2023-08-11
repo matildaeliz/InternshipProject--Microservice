@@ -1,4 +1,4 @@
-<!doctype html>
+!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="signup.css" />
-
+  <title>Sign Up</title>
 </head>
 <body>
 
@@ -36,23 +36,38 @@
 
 </script>
 <script>
-
         document.getElementById("backbtn").addEventListener("click", function() {
-
             window.location.href = "index.html";
         });
     </script>
 
 <script>
-  document.getElementById("signupbtn").addEventListener("click",function(){
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  document.getElementById("signupbtn").addEventListener("click", function() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var passwordagain = document.getElementById("passwordagain").value;
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST","http://localhost:9000/user/register?username="+username+"&password="+password);
-    xhr.send();
-  })
+    if (password !== passwordagain) {
+      alert("Passwords are different");
+    } else {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://localhost:9000/user/register?username=" + username + "&password=" + password);
 
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var responseText = xhr.responseText;
+            console.log("Yanıt Metni:", responseText);
+              alert("User added succesfully");
+          } else {
+            console.log("Yanıt Metni: User cannot added");
+            alert("User cannot added");
+          }
+        }
+      };
+      xhr.send();
+    }
+  });
 </script>
 </body>
 </html>
