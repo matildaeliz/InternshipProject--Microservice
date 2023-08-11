@@ -60,6 +60,11 @@ public void deleteReservation(){
         return price;
 
     }
+
+    public String getPNR() {
+        return PNR;
+    }
+
     public static String generatePNR(){
         final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         final String NUMBERS = "0123456789";

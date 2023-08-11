@@ -57,4 +57,9 @@ public class ReservationController {
     public void deleteReservation(){
         reservationService.deleteReservation();
     }
+
+    @GetMapping("/getpnr")
+    public String getpnr(){
+        return reservationService.getPNR();
+    }
 }

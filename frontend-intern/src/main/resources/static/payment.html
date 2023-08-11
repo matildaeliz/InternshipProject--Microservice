@@ -15,7 +15,7 @@
   </ul>
 </div>
 
-
+<label id ="pnrno"> no</label>
 <div id="infobox">
 
     <div id="line"></div>
@@ -60,6 +60,18 @@
 
             }
         };
+
+        var pnr = new XMLHttpRequest();
+        pnr.open("GET", "http://localhost:9000/reservation/getpnr")
+        pnr.onreadystatechange = function () {
+
+            if (pnr.status === 200) {
+                var responseText = pnr.responseText;
+                document.getElementById("pnrno").textContent = "PNR NO:" +responseText;
+
+            }
+        };
+        pnr.send()
         flightinfos.send()
         passengerinfos.send()
 

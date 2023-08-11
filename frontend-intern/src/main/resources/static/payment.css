@@ -94,3 +94,10 @@ left:40mm;
 #mail{
     left:-0cm;
 }
+#pnrno{
+    position: absolute;
+top:50mm;
+left: 164mm;
+    font-weight: bold;
+    height: 20mm;
+}
